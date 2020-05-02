@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [10.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -28,4 +28,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
-    - run: npm test
+
+    - run: cat ~/GH_TOKEN.txt | docker login docker.pkg.github.com -u ArthurTavaresBezerra --password-stdin
+    - run: docker tag IMAGE_ID docker.pkg.github.com/arthurtavaresbezerra/audit_elecion_backend_nodejs/audit_election-backend:latest
+    - run: docker push docker.pkg.github.com/arthurtavaresbezerra/audit_elecion_backend_nodejs/audit_election-backend:latest
