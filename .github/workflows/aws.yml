@@ -66,9 +66,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Build APP whit Node.js ${{ matrix.node-version }}
+    - name: Build APP with NPM
       run: npm ci
-      run: npm run build --if-present
+    - name: List files and folders
       run: ls -la
   
     - name: Build, tag, and push image to Amazon ECR
