@@ -97,6 +97,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: audit-election-backend-gt-service
-        cluster: audit-election-backend-cluster-gt
+        service: audit-election-backend-nodejs-service
+        cluster: audit-election-backend-cluster
         wait-for-service-stability: true
