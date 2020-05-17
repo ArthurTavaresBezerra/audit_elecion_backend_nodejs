@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 LABEL MAINTAINER="Arthur Tavares Bezerra <atbezerra@stefanini.com>"
 
 ##Install SSH 
